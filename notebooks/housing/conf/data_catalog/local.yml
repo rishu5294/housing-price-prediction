@@ -1,0 +1,67 @@
+datasets:
+  raw:
+    house:
+      type: ds
+      format: csv
+      uri: ${core.data_base_path}/raw/house/housing.csv
+      driver_params: {}
+  
+
+  
+  cleaned:
+    house:
+      type: ds
+      format: parquet
+      uri: ${core.data_base_path}/cleaned/house/house.parquet
+      driver_params: {}
+
+
+
+  processed:
+    house:
+      type: ds
+      format: parquet
+      uri: ${core.data_base_path}/processed/house/house.parquet
+      driver_params: {}
+
+  train:
+    house:
+      features:
+        type: ds
+        format: parquet
+        uri: ${core.data_base_path}/train/house/features.parquet
+        driver_params:
+          save:
+            index: False
+      target:
+        type: ds
+        format: parquet
+        uri: ${core.data_base_path}/train/house/target.parquet
+        driver_params:
+          save:
+            index: False
+  test:
+    house:
+      features:
+        type: ds
+        format: parquet
+        uri: ${core.data_base_path}/test/house/features.parquet
+        driver_params:
+          save:
+            index: False
+      target:
+        type: ds
+        format: parquet
+        uri: ${core.data_base_path}/test/house/target.parquet
+        driver_params:
+          save:
+            index: False
+  score:
+    house:
+      output:
+        type: ds
+        format: parquet
+        uri: ${core.data_base_path}/test/house/scored_output.parquet
+        driver_params:
+          save:
+            index: False
